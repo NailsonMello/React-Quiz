@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
+import moment from 'moment'
+import 'moment/locale/pt-br'
+
 import QuizLogo from './svg';
 
 const size = 1
@@ -160,7 +163,7 @@ const Ticket = ({ name, login, percentageCorrect }) => {
                 Acertou <strong> {percentageCorrect}% </strong> das questões
               </TicketEventResult>
               <p>
-                Realizado: {new Date().toLocaleDateString()}
+                Realizado: {moment(new Date()).locale('pt-br').format('ddd, D [de] MMMM [de] YYYY')}
               </p>
               <TicketEventCreator>
                 https://react-quiz.nailsonmello.vercel.app

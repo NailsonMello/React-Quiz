@@ -4,6 +4,9 @@ import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { LinkedinShareButton, LinkedinIcon } from "react-share";
 import useSWR from 'swr'
+import moment from 'moment'
+import 'moment/locale/pt-br'
+
 import api from '../src/utils/api'
 import db from '../db.json'
 import Widget from '../src/components/Widget'
@@ -44,7 +47,9 @@ const Home = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [percentageCorrect, setPercentageCorrect] = useState(0)
   const [questions, setQuestions] = useState([])
-
+ 
+  const dateNow = moment(new Date()).locale('pt-br').format('ddd, D [de] MMMM [de] YYYY')
+ 
   useEffect(() => {
     if (data) {
       setQuestions(data.data)
@@ -179,7 +184,7 @@ const Home = () => {
               padding: '10px',
               borderRadius: '8px',
             }}
-            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}`}
+            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&date=${dateNow}`}
             download={`${user.login}.png`}
           >
             Baixar Ticket
@@ -192,7 +197,7 @@ const Home = () => {
               borderRadius: '8px',
               background: 'transparent'
             }}
-            url={`https://react-quiz-nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}.png`}
+            url={`https://react-quiz-nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&date=${dateNow}`}
             quote={'LinkedIn'}
           >
             <LinkedinIcon size={42} round={true} />
