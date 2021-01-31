@@ -1,0 +1,131 @@
+{
+    "bg": "https://wallpaperaccess.com/full/3949076.jpg",
+    "title": "⚛️ ReactJS - Quiz ⚛️",
+    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "questions": [
+        {
+            "image": "https://failure-driven.com/images/rails-camp/commit_06_snapshot_testing.gif",
+            "question": "What is the testing library most often associated with React?",
+            "choices": [
+                "Jest",
+                "Mocha",
+                "Sinon",
+                "Chai"
+            ],
+            "answer": "Jest"
+        },
+        {
+            "image": "https://blog.jetbrains.com/wp-content/uploads/2015/12/webstorm-rename-component.gif",
+            "question": "What is the name of the tool used to take JSX and turn it into createElement calls?",
+            "choices": [
+                "JSX Editor",
+                "Babel",
+                "Browser Buddy",
+                "ReactDOM"
+            ],
+            "answer": "Babel"
+        },
+        {
+            "image": "https://media0.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif",
+            "question": "What can you use to handle code splitting?",
+            "choices": [
+                "React.lazy",
+                "React.split",
+                "React.fallback",
+                "React.memo"
+            ],
+            "answer": "React.lazy"
+        },
+        {
+            "image": "https://miro.medium.com/max/2664/1*NBBZYfjeVBfHa1gPnMZJzA.gif",
+            "question": "Why is it important to avoid copying the values of props into a component's state where possible?",
+            "choices": [
+                "because you want to allow a component to update in response to changes in the props",
+                "because getDerivedStateFromProps() is an unsafe method to use",
+                "because you want to allow data to flow back up to the parent",
+                "because you should never mutate state"
+            ],
+            "answer": "because you want to allow a component to update in response to changes in the props"
+        },
+        {
+            "image": "https://media0.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif",
+            "question": "Which of these terms commonly describe React applications?",
+            "choices": [
+                "integrated",
+                "closed",
+                "imperative",
+                "declarative"
+            ],
+            "answer": "declarative"
+        },
+        {
+            "image": "https://user-images.githubusercontent.com/4583932/60730600-270b0100-9f0b-11e9-84ef-5a3a05379c42.gif",
+            "question": "Which attribute do you use to replace innerHTML in the browser DOM?",
+            "choices": [
+                "injectHTML",
+                "weirdSetInnerHTML",
+                "dangerouslySetInnerHTML",
+                "strangeHTML"
+            ],
+            "answer": "dangerouslySetInnerHTML"
+        },
+        {
+            "image": "https://media0.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif",
+            "question": "To create a constant in JavaScript, which keyword do you use?",
+            "choices": [
+                "constant",
+                "let",
+                "const",
+                "var"
+            ],
+            "answer": "const"
+        },
+        {
+            "image": "https://miro.medium.com/max/1754/1*x4wGjoTgnZ94-raKyABCIQ.gif",
+            "question": "Why might you use a ref?",
+            "choices": [
+                "to directly access the DOM node",
+                "to refer to another JS file",
+                "to call a function",
+                "to bind the function"
+            ],
+            "answer": "to directly access the DOM node"
+        },
+        {
+            "image": "https://media0.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif",
+            "question": "If you want to import just the Component from the React library, what syntax do you use?",
+            "choices": [
+                "import [ Component ] from 'react'",
+                "import { Component } from 'react'",
+                "import Component from 'react'",
+                "import React.Component from 'react'"
+            ],
+            "answer": "import { Component } from 'react'"
+        },
+        {
+            "image": "https://media0.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif",
+            "question": "What is sent to an Array.map() function?",
+            "choices": [
+                "the number of times you want to call the function",
+                "the name of another array to iterate over",
+                "a callback function that is called once for each element in the array",
+                "a string describing what the function should do"
+            ],
+            "answer": "a callback function that is called once for each element in the array"
+        }
+    ],
+    "external": [
+        ""
+    ],
+    "theme": {
+        "colors": {
+            "primary": "#176db3",
+            "secondary": "#64719b",
+            "mainBg": "#17464d",
+            "contrastText": "#FFFFFF",
+            "wrong": "#FF5722",
+            "success": "#4CAF50"
+        },
+        "borderRadius": "4px"
+    }
+}
