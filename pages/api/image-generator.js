@@ -1,4 +1,6 @@
 import { getScreenshot } from "../../src/utils/screenshot";
+import moment from 'moment'
+import 'moment/locale/pt-br'
 
 const getHTML = ({ name, login, percentageCorrect, dateParams }) => `
 <!DOCTYPE html>
@@ -314,7 +316,7 @@ export default async (req, res) => {
     name: req.query.name || "Adicione na URL: /?title=Titulo",
     percentageCorrect: req.query.percentageCorrect,
     login: req.query.login,
-    dateParams: req.query.dateParams,
+    dateParams: moment(req.query.dateParams).locale('pt-br').format('ddd, D [de] MMMM [de] YYYY').toString(),
   });
 
   if (isHTMLDebugMode) {

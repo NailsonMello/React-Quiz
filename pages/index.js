@@ -197,7 +197,7 @@ const Home = () => {
               borderRadius: '8px',
               background: 'transparent'
             }}
-            url={`https://react-quiz-nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${dateNow}`}
+            url={`https://react-quiz-nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${new Date().toISOString()}`}
             quote={'LinkedIn'}
           >
             <LinkedinIcon size={42} round={true} />
