@@ -33,6 +33,37 @@ const QuizContainer = styled.div`
     padding: 15px;
   }
 `
+const DownloadTicket = styled.a`
+  position: absolute;
+  top: 20px;
+  right: 600px;
+  color: #fff;
+  font-size: 1.4em;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius: 8px;
+  @media screen and (max-width: 500px) {
+    top: 28px;
+    right: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 99999;
+    font-size: 1.1em;
+  }
+`
+const LinkedinButton = styled(LinkedinShareButton)`
+    position: absolute;
+    top: 20px;
+    right: 500px;
+    border-radius: 8px;
+    background: transparent;
+    @media screen and (max-width: 500px) {
+      top: 80px;
+      right: 10px;
+   }
+`
 let interval = 0;
 const Home = () => {
   const { data, error } = useSWR(`/api/question`, api)
@@ -47,7 +78,7 @@ const Home = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [percentageCorrect, setPercentageCorrect] = useState(0)
   const [questions, setQuestions] = useState([])
- 
+
   useEffect(() => {
     if (data) {
       setQuestions(data.data)
@@ -107,7 +138,27 @@ const Home = () => {
         </title>
       </Head>
       <QuizContainer>
+        {user && <UserPage name={user.name} avatar_url={user.avatar_url} />}
+        {step === 3 && Math.floor((correctAnswers / questions.length) * 100) > 70 && (
+          <>
+            <DownloadTicket
+              href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${new Date().toISOString()}`}
+              download={`${user.login}.png`}
+            >
+              Baixar Ticket
+          </DownloadTicket>
+            <LinkedinButton
+              url={`https://react-quiz.nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${new Date().toISOString()}`}
+              quote={'LinkedIn'}
+            >
+              <LinkedinIcon size={42} round={true} />
+            </LinkedinButton>
+            
+          </>
+        )}
         <QuizLogo />
+        {step === 3 && Math.floor((correctAnswers / questions.length) * 100) > 70 && (
+        <Ticket name={user.name} login={user.login} percentageCorrect={percentageCorrect} />)}
         <Widget
           as={motion.section}
           transition={{ delay: 0, duration: 0.5 }}
@@ -168,41 +219,6 @@ const Home = () => {
         />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/nailsonmello" />
-      {user && <UserPage name={user.name} avatar_url={user.avatar_url} />}
-      { step === 3 && Math.floor((correctAnswers / questions.length) * 100) > 70 && (
-        <>
-          <a
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '600px',
-              color: '#fff',
-              fontSize: '1.4em',
-              background: 'rgba(0,0,0,0.5)',
-              padding: '10px',
-              borderRadius: '8px',
-            }}
-            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${new Date().toISOString()}`}
-            download={`${user.login}.png`}
-          >
-            Baixar Ticket
-          </a>
-          <LinkedinShareButton
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '500px',
-              borderRadius: '8px',
-              background: 'transparent'
-            }}
-            url={`https://react-quiz.nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${new Date().toISOString()}`}
-            quote={'LinkedIn'}
-          >
-            <LinkedinIcon size={42} round={true} />
-          </LinkedinShareButton>
-          <Ticket name={user.name} login={user.login} percentageCorrect={percentageCorrect} />
-        </>
-      )}
     </QuizBackground>
   )
 }
