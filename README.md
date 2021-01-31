@@ -11,12 +11,12 @@
 
 ## Basic Setup
 
-To run demo: clone repo and run `npm install || yarn install && npm run run-demos`
+To run demo: clone repo and run `npm install || yarn install && npm run dev || yarn dev`
 and open `http://localhost:3000`.
 
 
 ## Click to see the video on YouTube
-[![Watch the video](./screens/result.PNG)]()
+[![Watch the video](./screens/result.PNG)](https://youtu.be/hbolZUdj8bY)
 
 ## Screens
 | | | |
