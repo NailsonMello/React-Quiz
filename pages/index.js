@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { LinkedinShareButton, LinkedinIcon } from "react-share";
 import useSWR from 'swr'
-import moment from 'moment'
+
 import 'moment/locale/pt-br'
 
 import api from '../src/utils/api'
@@ -47,9 +47,7 @@ const Home = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [percentageCorrect, setPercentageCorrect] = useState(0)
   const [questions, setQuestions] = useState([])
-
-  const dateNow = moment(new Date()).locale('pt-br').format('ddd, D [de] MMMM [de] YYYY').toString()
-  
+ 
   useEffect(() => {
     if (data) {
       setQuestions(data.data)
@@ -184,7 +182,7 @@ const Home = () => {
               padding: '10px',
               borderRadius: '8px',
             }}
-            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${dateNow}`}
+            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${new Date().toISOString()}`}
             download={`${user.login}.png`}
           >
             Baixar Ticket
