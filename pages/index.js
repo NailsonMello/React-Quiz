@@ -47,9 +47,9 @@ const Home = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [percentageCorrect, setPercentageCorrect] = useState(0)
   const [questions, setQuestions] = useState([])
- 
-  const dateNow = moment(new Date()).locale('pt-br').format('ddd, D [de] MMMM [de] YYYY')
- 
+
+  const dateNow = moment(new Date()).locale('pt-br').format('ddd, D [de] MMMM [de] YYYY').toString()
+  
   useEffect(() => {
     if (data) {
       setQuestions(data.data)
@@ -184,7 +184,7 @@ const Home = () => {
               padding: '10px',
               borderRadius: '8px',
             }}
-            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&date=${dateNow}`}
+            href={`/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${dateNow}`}
             download={`${user.login}.png`}
           >
             Baixar Ticket
@@ -197,7 +197,7 @@ const Home = () => {
               borderRadius: '8px',
               background: 'transparent'
             }}
-            url={`https://react-quiz-nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&date=${dateNow}`}
+            url={`https://react-quiz-nailsonmello.vercel.app/api/image-generator?name=${user.name}&login=${user.login}&percentageCorrect=${percentageCorrect}&dateParams=${dateNow}`}
             quote={'LinkedIn'}
           >
             <LinkedinIcon size={42} round={true} />

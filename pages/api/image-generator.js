@@ -1,6 +1,6 @@
 import { getScreenshot } from "../../src/utils/screenshot";
 
-const getHTML = ({ name, login, percentageCorrect, date }) => `
+const getHTML = ({ name, login, percentageCorrect, dateParams }) => `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -289,7 +289,7 @@ const getHTML = ({ name, login, percentageCorrect, date }) => `
                             Acertou <strong> ${percentageCorrect}% </strong> das questões
                         </p>
                         <p class="ticket-info-date">
-                            Realizado: ${date}
+                            Realizado: ${dateParams}
                         </p>
                         <p class="TicketEventCreator">
                             https://react-quiz.nailsonmello.vercel.app
@@ -314,7 +314,7 @@ export default async (req, res) => {
     name: req.query.name || "Adicione na URL: /?title=Titulo",
     percentageCorrect: req.query.percentageCorrect,
     login: req.query.login,
-    date: req.query.date,
+    dateParams: req.query.dateParams,
   });
 
   if (isHTMLDebugMode) {
