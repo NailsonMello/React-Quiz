@@ -301,7 +301,7 @@ const getHTML = ({ name, login, percentageCorrect, dateParams }) => `
             </div>
         </div>
         <div class="ticket-visual_ticket-number-wrapper">
-            <div class="ticket-visual_ticket-number">Quiz JS/ReactJS</div>
+            <div class="ticket-visual_ticket-number">Quiz - ReactJS</div>
         </div>
     </div>
     </div>
